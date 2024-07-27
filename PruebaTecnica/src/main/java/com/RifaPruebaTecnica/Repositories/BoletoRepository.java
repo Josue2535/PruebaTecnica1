@@ -1,4 +1,4 @@
-package Repositories;
+package com.RifaPruebaTecnica.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
