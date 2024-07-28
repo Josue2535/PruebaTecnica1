@@ -21,8 +21,6 @@ Este proyecto consiste en una aplicación CRUD de rifas, que incluye un frontend
    cd /ruta/a/tu/proyecto/docker
 Ejecuta el comando docker-compose para iniciar los servicios:
 
-sh
-Copiar código
 docker-compose up -d
 Esto levantará los contenedores necesarios para la base de datos y otros servicios definidos en tu archivo docker-compose.yml.
 
