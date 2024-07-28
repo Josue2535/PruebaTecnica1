@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h4>Editar Boleto</h4>
+      <a href="/boletos" class="btn btn-danger float-end">Volver</a>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="updateBoleto()">
+        <div class="mb-3">
+          <label for="numero">Número</label>
+          <input type="number" [(ngModel)]="boleto.numero" name="numero" id="numero" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="rifaId">ID de Rifa</label>
+          <select [(ngModel)]="boleto.rifaId" name="rifaId" id="rifaId" class="form-control">
+            <option *ngFor="let rifa of rifas" [value]="rifa.id">{{rifa.nombre}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="usuarioId">ID de Usuario</label>
+          <select [(ngModel)]="boleto.usuarioId" name="usuarioId" id="usuarioId" class="form-control">
+            <option *ngFor="let user of users" [value]="user.id">{{user.nombre}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

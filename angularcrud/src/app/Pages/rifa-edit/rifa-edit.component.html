@@ -1,0 +1,39 @@
+<div>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h4>Editar Rifa</h4>
+        <a href="/rifas" class="btn btn-danger float-end">Volver</a>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="updateRifa()">
+          <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <input type="text" [(ngModel)]="rifa.nombre" name="nombre" id="nombre" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="descripcion">Descripción</label>
+            <input type="text" [(ngModel)]="rifa.descripcion" name="descripcion" id="descripcion" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="fechaCreacion">Fecha de Creación</label>
+            <input type="date" [(ngModel)]="rifa.fechaCreacion" name="fechaCreacion" id="fechaCreacion" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="fechaFinalizacion">Fecha de Finalización</label>
+            <input type="date" [(ngModel)]="rifa.fechaFinalizacion" name="fechaFinalizacion" id="fechaFinalizacion" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="usuarioId">ID de Usuario</label>
+            <select [(ngModel)]="rifa.usuarioId" name="usuarioId" id="usuarioId" class="form-control">
+              <option *ngFor="let user of users" [value]="user.id">{{user.nombre}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
