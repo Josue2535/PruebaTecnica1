@@ -8,6 +8,11 @@ export interface UserRespnse{
   email:string
 
 }
+
+export interface UserEditRespnse{
+  status:Number,
+  user: Object
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +25,13 @@ export class UserService {
   }
   getUserLists(){
     return this.httpClient.get(`${this.apiUrl}`);
+  }
+
+  getStudent(userId:string){
+    return this.httpClient.get(`${this.apiUrl}/${userId}`);
+  }
+
+  updateUser(inputData:Object, userId:number){
+    return this.httpClient.put(`${this.apiUrl}/${userId}`,inputData);
   }
 }

@@ -10,7 +10,7 @@ export const routes: Routes = [
     {path: 'users/:id/editUser', component: UserEditComponent, title: 'User Edit'},
     {path: 'users', component: UserPageComponent, title: 'Users Page'}
     /*{path: '/addRifa', component: HomeComponent, title: 'Home Page'},
-    {path: '/editRifa', component: HomeComponent, title: 'Home Page'},
+    /*{path: '/editRifa', component: HomeComponent, title: 'Home Page'},
     {path: '/viewRifa', component: HomeComponent, title: 'Home Page'},
     {path: '/addBoleto', component: HomeComponent, title: 'Home Page'},
     {path: '/editBoleto', component: HomeComponent, title: 'Home Page'},

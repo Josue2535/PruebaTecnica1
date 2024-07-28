@@ -16,7 +16,7 @@ export class UserCreateComponent {
   constructor(private userService: UserService) {}
 
   saveUser() {
-    const userData = { name: this.name, email: this.email };
+    let userData = { name: this.name, email: this.email };
     this.userService.saveUser(userData).subscribe(
       response => {
         console.log('User saved successfully', response);
