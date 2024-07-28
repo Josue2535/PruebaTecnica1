@@ -1,33 +1,38 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Boleto } from '../models/boleto.model';
+
+export interface BoletoResponse {
+  id: number;
+  numero: number;
+  rifaId: number;
+  usuarioId: number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoletoService {
-  private baseUrl = 'http://localhost:8080/api/boletos'; // Ajusta la URL según tu backend
+  private apiUrl = 'http://localhost:9300/Boleto';
+  private httpClient = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
-
-  getBoletosByRifa(rifaId: number): Observable<Boleto[]> {
-    return this.http.get<Boleto[]>(`${this.baseUrl}?rifaId=${rifaId}`);
+  getBoletoLists(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/findAll`);
   }
 
-  getBoletoById(id: number): Observable<Boleto> {
-    return this.http.get<Boleto>(`${this.baseUrl}/${id}`);
+  getBoleto(boletoId: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${boletoId}`);
   }
 
-  createBoleto(boleto: Boleto): Observable<Boleto> {
-    return this.http.post<Boleto>(this.baseUrl, boleto);
+  saveBoleto(boletoData: object): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/`, boletoData);
   }
 
-  updateBoleto(boleto: Boleto): Observable<Boleto> {
-    return this.http.put<Boleto>(`${this.baseUrl}/${boleto.id}`, boleto);
+  updateBoleto(boletoData: object, boletoId: number): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/${boletoId}`, boletoData);
   }
 
-  deleteBoleto(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteBoleto(boletoId: number): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/${boletoId}`);
   }
 }

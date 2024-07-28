@@ -1,33 +1,39 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Rifa } from '../models/rifa.model';
+
+export interface RifaResponse {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  fechaCreacion: Date;
+  fechaFinalizacion: Date;
+}
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RifaService {
-  private baseUrl = 'http://localhost:8080/api/rifas';
+  private apiUrl = 'http://localhost:9300/rifa';
+  private httpClient = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
-
-  getRifas(): Observable<Rifa[]> {
-    return this.http.get<Rifa[]>(this.baseUrl);
+  saveRifa(rifaData: object): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/`, rifaData);
   }
 
-  getRifaById(id: number): Observable<Rifa> {
-    return this.http.get<Rifa>(`${this.baseUrl}/${id}`);
+  getRifaList(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/findAll`);
   }
 
-  createRifa(rifa: Rifa): Observable<Rifa> {
-    return this.http.post<Rifa>(this.baseUrl, rifa);
+  getRifa(rifaId: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/${rifaId}`);
   }
 
-  updateRifa(rifa: Rifa): Observable<Rifa> {
-    return this.http.put<Rifa>(`${this.baseUrl}/${rifa.id}`, rifa);
+  updateRifa(rifaData: object, rifaId: string): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/${rifaId}`, rifaData);
   }
-
-  deleteRifa(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteRifa(rifaId: number): Observable<any> {
+    return this.httpClient.delete(`${this.apiUrl}/${rifaId}`);
   }
 }
