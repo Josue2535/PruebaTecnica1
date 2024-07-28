@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface UserRespnse{
   id: number,
-  name:string,
+  nombre:string,
   email:string
 
 }
@@ -17,14 +17,14 @@ export interface UserEditRespnse{
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'https://66a5b86123b29e17a1a0c277.mockapi.io/api/user/users';
+  private apiUrl = 'http://localhost:9300/usuario';
   private httpClient = inject(HttpClient);
 
   saveUser(inputData: object): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}`, inputData);
+    return this.httpClient.post(`${this.apiUrl}/`, inputData);
   }
   getUserLists(){
-    return this.httpClient.get(`${this.apiUrl}`);
+    return this.httpClient.get(`${this.apiUrl}/findAll`);
   }
 
   getStudent(userId:string){
@@ -33,5 +33,9 @@ export class UserService {
 
   updateUser(inputData:Object, userId:number){
     return this.httpClient.put(`${this.apiUrl}/${userId}`,inputData);
+  }
+
+  deleteUser(userId:Number){
+    return this.httpClient.delete(`${this.apiUrl}/${userId}`);
   }
 }

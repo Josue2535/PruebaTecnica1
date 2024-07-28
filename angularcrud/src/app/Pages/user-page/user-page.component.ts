@@ -32,4 +32,16 @@ export class UserPageComponent {
       this.users = res
     })
   }
+
+  deleteUser(event:any,userId:Number){
+
+    if(confirm('Seguro que queres borrar el usuario?')){
+      event.target.innerText = "Deleting.."
+
+      this.userService.deleteUser(userId).subscribe((res:any)=>{
+        this.getUserLists();
+        alert("User Deleted")
+      })
+    }
+  }
 }

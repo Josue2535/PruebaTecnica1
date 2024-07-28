@@ -10,13 +10,13 @@ import { UserService } from '../../Services/user.service';
   styleUrl: './user-create.component.css'
 })
 export class UserCreateComponent {
-  name: string = '';
+  nombre: string = '';
   email: string = '';
 
   constructor(private userService: UserService) {}
 
   saveUser() {
-    let userData = { name: this.name, email: this.email };
+    let userData = { nombre: this.nombre, email: this.email };
     this.userService.saveUser(userData).subscribe(
       response => {
         console.log('User saved successfully', response);

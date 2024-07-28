@@ -2,14 +2,14 @@
   <div class="container mt-5">
     <div class="card">
       <div class="card-header">
-        <h4>User Create</h4>
+        <h4>Creacion de Usuario</h4>
         <a href="/users" class="btn btn-danger float-end">Volver</a>
       </div>
   <div class="card-body">
     <form (ngSubmit)="saveUser()">
       <div class="mb-3">
         <label for="name">Nombre</label>
-        <input type="text" [(ngModel)]="name" name="name" id="name" class="form-control">
+        <input type="text" [(ngModel)]="nombre" name="name" id="name" class="form-control">
       </div>
       <div class="mb-3">
         <label for="email">Email</label>

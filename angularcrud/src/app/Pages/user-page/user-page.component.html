@@ -1,8 +1,8 @@
 <div class="mt-5 container">
   <div class="card">
     <div class="card-header">
-      <h4>Students Lists
-        <a routerLink="/users/addUser" class="btn btn-primary float-end">Add User</a>
+      <h4>Lista de Usuarios
+        <a routerLink="/users/addUser" class="btn btn-primary float-end">Agregar Usario</a>
       </h4>
     </div>
     <div class="card-body">
@@ -18,11 +18,14 @@
         <tbody>
           <tr *ngFor="let item of users">
             <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
+            <td>{{item.nombre}}</td>
             <td>{{item.email}}</td>
             <td>
               <a href="/users/{{item.id}}/editUser" class="btn btn-success">Edit</a>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="button"(click)="deleteUser($event,item.id)"
+               class="btn btn-danger">
+               Delete
+              </button>
             </td>
           </tr>
         </tbody>
