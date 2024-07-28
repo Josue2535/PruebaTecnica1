@@ -1,0 +1,25 @@
+<div>
+  <div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        <h4>User Create</h4>
+        <a href="/users" class="btn btn-danger float-end">Volver</a>
+      </div>
+  <div class="card-body">
+    <form (ngSubmit)="saveUser()">
+      <div class="mb-3">
+        <label for="name">Nombre</label>
+        <input type="text" [(ngModel)]="name" name="name" id="name" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="email" [(ngModel)]="email" name="email" id="email" class="form-control">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</div>

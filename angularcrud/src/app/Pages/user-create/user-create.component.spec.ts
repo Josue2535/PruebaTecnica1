@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RifasComponent } from './rifas.component';
+import { UserCreateComponent } from './user-create.component';
 
-describe('RifasComponent', () => {
-  let component: RifasComponent;
-  let fixture: ComponentFixture<RifasComponent>;
+describe('UserCreateComponent', () => {
+  let component: UserCreateComponent;
+  let fixture: ComponentFixture<UserCreateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RifasComponent]
+      imports: [UserCreateComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RifasComponent);
+    fixture = TestBed.createComponent(UserCreateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
