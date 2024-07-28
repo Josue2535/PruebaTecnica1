@@ -30,6 +30,15 @@ services:
     networks:
       - my_network
 
+angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: angular_app_container
+    ports:
+      - "8080:81"  # Mapea el puerto 80 del contenedor al puerto 8080 de tu máquina local
+    networks:
+      - my_network
 volumes:
   mysql_data:
 

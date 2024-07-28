@@ -1,0 +1,50 @@
+# Proyecto CRUD de Rifas
+
+## Descripción
+
+Este proyecto consiste en una aplicación CRUD de rifas, que incluye un frontend desarrollado en Angular 18, un backend desarrollado con Spring Boot, y servicios de base de datos configurados con Docker Compose.
+
+## Requisitos
+
+- Docker y Docker Compose: Para ejecutar los servicios de base de datos.
+- Node.js (versión 18 o superior) y npm: Para ejecutar el proyecto Angular.
+- JDK 17: Para ejecutar el backend de Spring Boot.
+- Maven: Para gestionar las dependencias y la compilación del proyecto Spring Boot.
+
+## Instrucciones
+
+### 1. Ejecutar Docker Compose
+
+1. Navega a la carpeta `docker` del proyecto:
+
+   ```sh
+   cd /ruta/a/tu/proyecto/docker
+Ejecuta el comando docker-compose para iniciar los servicios:
+
+sh
+Copiar código
+docker-compose up -d
+Esto levantará los contenedores necesarios para la base de datos y otros servicios definidos en tu archivo docker-compose.yml.
+
+2. Ejecutar el proyecto Angular
+Navega a la carpeta angular-crud del proyecto:
+
+cd /ruta/a/tu/proyecto/angular-crud
+Instala las dependencias del proyecto:
+
+npm install
+Inicia el servidor de desarrollo de Angular:
+
+
+ng serve
+
+El proyecto Angular debería estar disponible en http://localhost:4200.
+
+3. Ejecutar el backend Spring Boot
+Navega a la carpeta PruebaTecnica del proyecto:
+
+cd /ruta/a/tu/proyecto/PruebaTecnica
+Compila el proyecto y ejecuta el backend:
+
+./mvnw spring-boot:run
+El backend de Spring Boot debería estar disponible en http://localhost:8080.
